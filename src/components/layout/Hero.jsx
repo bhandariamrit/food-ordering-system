@@ -39,7 +39,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <Image src={"/pizza.png"} alt={"pizza"} height={50} width={180} />
+          <Image src={"/burgur.png"} alt={"burgur"} height={50} width={180} />
         </div>
       </div>
     </section>
