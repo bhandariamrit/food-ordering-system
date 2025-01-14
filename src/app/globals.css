@@ -1,0 +1,39 @@
+@tailwind base;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+:root {
+  --font-roboto: 'Roboto', sans-serif;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: var(--secondary) var(--primary);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--primary);
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #f9661d;
+  border-radius: 14px;
+  border: 1px var(--primary);
+  -webkit-border-radius: 14px;
+  -moz-border-radius: 14px;
+  -ms-border-radius: 14px;
+  -o-border-radius: 14px;
+}
+
+@tailwind components;
+@tailwind utilities;
+
+/* section.hero {
+  @apply grid;
+  grid-template-columns: 0.4fr 0.6fr;
+} */

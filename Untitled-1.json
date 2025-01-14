@@ -1,0 +1,31 @@
+{
+    "phone_number": "9822343434",
+    "street_address": "asdfasdf",
+    "postal_code": "977",
+    "city": "asdasdf",
+    "country": "Nepal",
+    "cartProductsClient": [
+        {
+            "_id": "677e7a4eeaaf9b7afb9deb70",
+            "image": "http://res.cloudinary.com/dzaezgxqb/image/upload/v1736342094/zybn37swnumygdjfkwx2.jpg",
+            "name": "Food-Test",
+            "description": "Test",
+            "basePrice": 1,
+            "category": {
+                "_id": "677e7a37eaaf9b7afb9deb61",
+                "name": "Testing",
+                "createdAt": "2025-01-08T13:14:31.573Z",
+                "updatedAt": "2025-01-08T13:14:31.573Z",
+                "__v": 0
+            },
+            "sizes": [],
+            "extraIngredientPrices": [],
+            "createdAt": "2025-01-08T13:14:54.737Z",
+            "updatedAt": "2025-01-08T13:14:54.737Z",
+            "__v": 0,
+            "size": null,
+            "extras": [],
+            "product_price": 1
+        }
+    ]
+}
