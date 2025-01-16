@@ -29,10 +29,7 @@ export default function Buttons() {
       {status === "authenticated" ? (
         <div>
           <div className="flex gap-3 items-center">
-            <Link
-              href={"/profile"}
-              className="text-xl font-bold"
-            >
+            <Link href={"/profile"} className="text-xl font-bold">
               Hello, <span className="underline">{userName}</span>
             </Link>
 
@@ -59,7 +56,7 @@ export default function Buttons() {
             Sign Up
           </Button>
           <Button as={Link} color="primary" href="/login" variant="flat">
-            Sign In
+            Log In
           </Button>
         </div>
       )}
