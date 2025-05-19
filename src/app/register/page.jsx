@@ -187,7 +187,7 @@ export default function RegisterPage() {
             className="my-10 disabled:bg-gray-500"
             disabled={formik.isSubmitting}
           >
-            Register
+            Sign Up
           </Button>
         </div>
       </form>
