@@ -1,37 +1,38 @@
 "use client";
 
+import { useEffect, useState, useMemo } from "react";
+import toast from "react-hot-toast";
 import AddressInputs from "@/components/layout/cart-components/AddressInputs";
 import SectionHeaders from "@/components/layout/SectionHeaders";
-import { useEffect, useState } from "react";
+import ProductsList from "@/components/layout/cart-components/ProductsList";
 import { useCartProductsStore } from "@/store/CartProductStore";
 import { useUserStore } from "@/store/UserStore";
-import toast from "react-hot-toast";
-import ProductsList from "@/components/layout/cart-components/ProductsList";
 
 export default function CartPage() {
   const [cartProductsClient, setCartProductsClient] = useState([]);
 
   const cartProducts = useCartProductsStore((state) => state.cartProducts);
+  const deletedFromCart = useCartProductsStore((state) => state.deletedFromCart);
   const user = useUserStore((state) => state.user);
-  const deletedFromCart = useCartProductsStore(
-    (state) => state.deletedFromCart
-  );
-  //The use of useEffect is to prevent the hydration problem:
+
+  // Hydration fix
   useEffect(() => {
     setCartProductsClient(cartProducts);
   }, [cartProducts]);
 
+  // Toast on failed payment
   useEffect(() => {
     if (window.location.href.includes("canceled=1")) {
       toast.error("Payment failed 😔");
     }
   }, []);
 
-  let subtotal = 0;
-  for (const p of cartProducts) {
-    subtotal += p.product_price;
-    subtotal = subtotal ? subtotal.toFixed(2) : 0;
-  }
+  // Subtotal calculation
+  const subtotal = useMemo(() => {
+    return parseFloat(
+      cartProducts.reduce((acc, p) => acc + p.product_price, 0).toFixed(2)
+    );
+  }, [cartProducts]);
 
   if (cartProductsClient?.length === 0) {
     return (
@@ -57,7 +58,7 @@ export default function CartPage() {
           <AddressInputs
             disabled={false}
             user={user}
-            total={subtotal + 5}
+            total={subtotal + 5} // assuming 5 is shipping
             cartProductsClient={cartProductsClient}
           />
         </div>
